@@ -43,7 +43,7 @@ Cada arquivo tem uma finalidade específica, que serão detalhados mais a seguir
 
 Como próprio nome sugere, obtêm os datasets de treinamento e predição. Como estamos tratando de séries temporais, i.e. a cotação dos fundos é diária, para obter os datasets foram definidos janelas e períodos entre 2014 e 2022 (out/2022) como segue na imagem abaixo.
 
-![This is an image](/media/windows_table.png)
+![This is an image](/media/windows_table.PNG)
 
 
 
