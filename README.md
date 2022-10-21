@@ -1,4 +1,4 @@
-# Asset Allocation with Neural Networks
+# Asset Allocation with Artificial Neural Networks
 
 Asset Allocation model created in Python, using TensorFlow and Keras.
 
@@ -79,16 +79,16 @@ Este notebook é bem similar ao anterior, a única diferença é que ao invés d
 
 ### 5th notebook
 
-Neste último notebook, são comparadas as performances entre os resultados obtidos pela rede neural e pela MPT. São gerados gráficos de Boxplot como o abaixo:
-
-
-![This is an image](/media/boxplot.PNG)
-
+Neste último notebook, são comparadas as performances entre os resultados obtidos pela rede neural e pela MPT através de gráficos de Boxplot.
 
 ## Next steps
 
+As features empregadas no modelo são os mesmos utilizados pelo MPT, que são: Retorno, risco e correlação. Como os portfolios contêm 4 ativos, resultam em apenas 14 features como inputs. Como próximos passos para melhorar o modelo, pode-se inserir novas features como variáveis macroeconômicas, novas correlações e covariância dos ativos. Pode-se ainda alterar a arquitetura da rede neural, hiperparâmetros de treinamento, variação dos ativos de entrada etc.
 
 
 ## Conclusion
 
+Os resultados obtidos são bem satisfatórios, empregando-se apenas 14 features como inputs. Isto mostra o poder de uma rede neural e sua capacidade incrível de encontrar padrões complexos. Montar este projeto foi uma ideia original, a fim de integrar áreas que gosto bastante como investimentos, IA e matemática/estatística.
+
+Sintam-se à vontade para alterar o modelo e tentar melhorá-lo. Para mais dúvidas e questionamentos, basta enviar um email para ulissesmorais27@gmail.com
 
