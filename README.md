@@ -64,7 +64,7 @@ O total de portfolios que podem ser montados para cada tabela é de 35.960, vist
 
 Neste arquivo é montada a arquitetura da rede neural, além do treinamento e predição final de novos pesos de cada ativo do portfolio. As curvas de perda são similares às abaixo:
 
-![This is an image](/media/loss_curve.png)
+![This is an image](/media/loss_curve.PNG)
 
 
 ### 3rd notebook
