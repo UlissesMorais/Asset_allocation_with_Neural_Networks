@@ -69,7 +69,7 @@ In this notebook, the neural network architecture is assembled. Consequently, tr
 
 ### 3rd notebook
 
-In this notebook, the performances of each portfolio predicted by the neural networks are calculated. As the neural network has been optimized to search for the best risk-return ratio, the Sharpe ratio (more info about [Sharpe ratio](https://web.stanford.edu/~wfsharpe/art/sr/sr.htm)) is used as a performance parameter. The Neural Sharpe of each portfolio is calculated with the weights predicted by the neural network, while the Random Sharpe is calculated with randomly generated weights. In this way, the Neural Sharpe of each portfolio will be compared with a thousand Random Sharpes of the same portfolio. The performance was measured by the ratio of the number of times the Neural Sharpe is higher than the Random Sharpes, divided by a thousand.
+In this notebook, the performances of each portfolio predicted by the neural networks are calculated. As the neural network has been optimized to search for the best risk-return ratio, the Sharpe ratio (more info about **[Sharpe ratio](https://web.stanford.edu/~wfsharpe/art/sr/sr.htm)**) is used as a performance parameter. The Neural Sharpe of each portfolio is calculated with the weights predicted by the neural network, while the Random Sharpe is calculated with randomly generated weights. In this way, the Neural Sharpe of each portfolio will be compared with a thousand Random Sharpes of the same portfolio. The performance was measured by the ratio of the number of times the Neural Sharpe is higher than the Random Sharpes, divided by a thousand.
 
 Eg: A performance of 0.9 or 90% means that among a thousand Random Sharpes generated, the Neural Sharpe is higher than nine hundred of them.
 
