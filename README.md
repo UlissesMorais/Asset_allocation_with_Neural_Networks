@@ -19,11 +19,11 @@ Asset Allocation model created in Python, using TensorFlow and Keras.
 
 ## Introduction
 
-Este projeto teve como objetivo fazer um estudo de caso, desenvolvendo um modelo de rede neural para fazer alocação de ativos financeiros. Por alocação, entende-se que dado um conjunto de ativos financeiros (ações, índices, fundos de investimento etc.) o modelo preveria qual a distribuição de capital ideal em cada um deles. Neste projeto, foram utilizados fundos de investimento (FIMs e FIAs) como ativos financeiros, visto que hoje no Brasil estão alocados ~ R$ 2.3 trilhões em ambas as classes de ativos somadas (fonte: **[ANBIMA](https://www.anbima.com.br/pt_br/informar/estatisticas/fundos-de-investimento/fi-consolidado-diario.htm)**).
+This project is a case study, aiming to develope an artificial neural network model to do financial allocation. By allocation, it is understood that given a set of financial assets (stocks, indices, investment funds, etc.) the model would predict the ideal distribution in each of them. In this project, investment funds, such as FIMs and FIAs, were used as the financial assets. Today in Brazil ~ R$ 2.3 trillion are allocated in both asset classes combined (source: **[ANBIMA](https://www.anbima.com.br/pt_br/informar/estatisticas/fundos-de-investimento/fi-consolidado-diario.htm)**).
 
-Para realizar a alocação ideal, é preciso definir qual parâmetro será otimizado. Por exemplo: Gostaríamos de ter um portfolio com menor risco? Maior retorno? Melhor relação risco-retorno? Neste projeto, optou-se pelo melhor **risco-retorno**.
+To perform the optimal allocation, it is necessary to define which parameter will be optimized. The most commoms are smaller risk, higher return and higher return to risk ratio. In this project, the last was chosen.
 
-Para validação final dos resultados, foi feito um backtest de 2014 a 2022 e posteriormente confrontados com resultados obtidos pelo modelo **[Modern portfolio theory](https://en.wikipedia.org/wiki/Modern_portfolio_theory)**.
+For the results validation, a backtest was carried out from 2014 to 2022. Later, these backtest results were confronted with the results obtained by the **[Modern Portfolio Theory](https://en.wikipedia.org/wiki/Modern_portfolio_theory)**, which served as a benchmark.
  
  
 ## Technologies
@@ -35,7 +35,7 @@ Para validação final dos resultados, foi feito um backtest de 2014 a 2022 e po
 
 ## Scope and functionalities
 
-O projeto está dividido em cinco notebooks:
+The project is divided into five notebooks:
 
 &nbsp;&nbsp;&nbsp;**1.**  trainpred_datasets_NNs
 
@@ -47,48 +47,49 @@ O projeto está dividido em cinco notebooks:
 
 &nbsp;&nbsp;&nbsp;**5.** boxplot_performances
 
-Cada arquivo tem uma finalidade específica, que serão detalhados mais a seguir.
+Each file has a specific purpose, which will be detailed below.
 
 
 ### 1st notebook
 
-Como próprio nome sugere, obtêm os datasets de treinamento e predição. Como estamos tratando de séries temporais, i.e. a cotação dos fundos é diária, para obter os datasets foram definidos janelas e períodos entre 2014 e 2022 (out/2022) como segue na imagem abaixo.
+As the name suggests, this notebook computes the training and prediction datasets. The price is a time series, i.e. varies daily. To build the datasets, windows and periods were defined between 2014 and 2022 (Oct/2022) as shown in the image below.
 
 ![This is an image](/media/windows_table.PNG)
 
-As janelas de análise são compostas de quatro períodos, em que três períodos são para treinamento e um para predição. Os portfolios são montados com um conjunto de fundos importados de uma planilha pré definida, que está na pasta "planilha_fundos". Neste projeto foram selecionados duas tabelas com 32 fundos cada, uma de FIAs (fundos de investimento de ações) e outra de FIMs (fundos de investimentos multimercado).
+The windows are composed of four periods, where three periods are for training and one for prediction. Portfolios are assembled with a set of funds imported from a pre-defined spreadsheet, which is in the "funds_spreadsheets" folder. In this project, two spreadsheets were selected with 32 funds each, one of FIAs (equity funds) and another of FIMs (hedge funds).
 
-O total de portfolios que podem ser montados para cada tabela é de 35.960, visto que cada portfolio contêm 4 fundos. Por ser uma amostra de tamanho considerável, pretende-se minimizar possíveis comportamentos pontuais que não representem o todo.
+The amount of portfolios with four funds each that can be built is 35,960. It is a sample of considerable size, which is intended to minimize possible local behaviors that do not represent the whole.
 
 ### 2nd notebook
 
-Neste arquivo é montada a arquitetura da rede neural, além do treinamento e predição final de novos pesos de cada ativo do portfolio. As curvas de perda são similares às abaixo:
+In this notebook, the neural network architecture is assembled. Consequently, training the neural network and predicting new weights for each asset in the portfolios is also performed. The loss curves are similar to the ones below:
 
 ![This is an image](/media/loss_curve.PNG)
 
 
 ### 3rd notebook
 
-São calculadas as performances de cada portfolio previstos pela rede neural. Como a rede neural foi otimizada para buscar a melhor relação risco-retorno, é utilizado o Sharpe ratio (sobre [Sharpe ratio](https://web.stanford.edu/~wfsharpe/art/sr/sr.htm)) como parâmetro de performance. O Sharpe Neural de cada portfolio é calculado com os pesos previstos pela rede neural, enquanto o Sharpe Aleatório é calculado com pesos gerados de forma aleatória. Desta forma, o Sharpe Neural de cada portfolio será comparado com mil Sharpes Aleatórios deste mesmo portfolio, sendo a performance medida pela razão do número de vezes em que o Sharpe Neural é maior do que o Sharpes Aleatórios, divido por mil.
+In this notebook, the performances of each portfolio predicted by the neural network are calculated. As the neural network has been optimized to search for the best risk-return ratio, the Sharpe ratio (more info about [Sharpe ratio](https://web.stanford.edu/~wfsharpe/art/sr/sr.htm)) is used as a performance parameter. The Neural Sharpe of each portfolio is calculated with the weights predicted by the neural network, while the Random Sharpe is calculated with randomly generated weights. In this way, the Neural Sharpe of each portfolio will be compared with a thousand Random Sharpes of the same portfolio. The performance were measured by the ratio of the number of times the Neural Sharpe is higher than the Random Sharpes, divided by a thousand.
 
-Ex.: Uma performance de 0.9 ou 90% significa que dentre mil Sharpes Aleatórios gerados, o Sharpe Neural é maior do que novecentos destes.
+Eg: A performance of 0.9 or 90% means that among a thousand Random Sharpes generated, the Neural Sharpe is higher than nine hundred of them.
 
 ### 4th notebook
 
-Este notebook é bem similar ao anterior, a única diferença é que ao invés de importar os pesos da rede neural, os Sharpes Markowitz (não mais os Sharpes Neurais) são obtidos pela Teoria Moderna de Portfolio.
+This notebook is very similar to the previous one, the only difference is that instead of importing the neural network predicted weights, the Markowitz Sharpes (no longer the Neural Sharpes) are obtained by the MPT.
 
 ### 5th notebook
 
-Neste último notebook, são comparadas as performances entre os resultados obtidos pela rede neural e pela MPT através de gráficos de Boxplot.
+In this last notebook, the performances between the results obtained by the neural network and the MPT were compared in a boxplot chart.
 
 ## Next steps
 
-As features empregadas no modelo são os mesmos utilizados pelo MPT, que são: Retorno, risco e correlação. Como os portfolios contêm 4 ativos, resultam em apenas 14 features como inputs. Como próximos passos para melhorar o modelo, pode-se inserir novas features como variáveis macroeconômicas, novas correlações e covariância dos ativos. Pode-se ainda alterar a arquitetura da rede neural, hiperparâmetros de treinamento, variação dos ativos de entrada etc.
+The features used in the model are the same used by MPT, which are: Returns, risks and correlations. This gives a total of only 14 features as inputs. Some next steps to improve the model are increasing the number of features like macroeconomic variables, new correlations and covariances. Could also change the architecture of the neural network, training hyperparameters, combined features, etc.
 
 
 ## Conclusion
 
-Os resultados obtidos são bem satisfatórios, empregando-se apenas 14 features como inputs. Isto mostra o poder de uma rede neural e sua capacidade incrível de encontrar padrões complexos. Montar este projeto foi uma ideia original, a fim de integrar áreas que gosto bastante como investimentos, IA e matemática/estatística.
+The results obtained are quite satisfactory, using only 14 features as inputs. This shows the power of an artificial neural network and its incredible ability to find complex patterns. Setting up this project was an original idea, in order to integrate areas that I really like such as Investments, Artificial Intelligence, Mathematics, Statistics and Programming.
 
-Sintam-se à vontade para alterar o modelo e tentar melhorá-lo. Para mais dúvidas e questionamentos, basta enviar um email para ulissesmorais27@gmail.com
+Feel free to change the model and try to improve it. For more questions, just send an email to ulissesmorais27@gmail.com
+
 
