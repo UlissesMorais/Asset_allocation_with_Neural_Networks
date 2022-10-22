@@ -21,7 +21,7 @@ Artificial Neural Networks model created in Python (with TensorFlow and Keras) t
 
 This project is a case study, aiming to develope an artificial neural network model to do asset allocation. By allocation, it is understood that given a set of financial assets (stocks, indices, investment funds, etc.) the model would predict the ideal distribution in each of them. In this project, investment funds, such as FIMs and FIAs, were used as the financial assets. Today in Brazil ~ R$ 2.3 trillion are allocated in both asset classes combined (source: **[ANBIMA](https://www.anbima.com.br/pt_br/informar/estatisticas/fundos-de-investimento/fi-consolidado-diario.htm)**).
 
-To perform the optimal allocation, it is necessary to define which parameter will be optimized. The most commoms are smaller risk, higher return and higher return to risk ratio. In this project, the last was chosen.
+To perform the optimal allocation, it is necessary to define which parameter will be optimized. The most common are smaller risk, higher return and higher return to risk ratio. In this project, the last was chosen.
 
 For the results validation, a backtest was carried out from 2014 to 2022. Later, these backtest results were confronted with the results obtained by the **[Modern Portfolio Theory](https://en.wikipedia.org/wiki/Modern_portfolio_theory)**, which served as a benchmark.
  
