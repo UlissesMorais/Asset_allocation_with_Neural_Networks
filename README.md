@@ -1,6 +1,6 @@
 # Asset Allocation with Artificial Neural Networks
 
-Artificial Neural Networks model created in Python (with TensorFlow and Keras) to do asset allocation.
+Artificial Neural Networks model created in Python (with TensorFlow and Keras) for asset allocation.
 
 
 ## Table of Contents
