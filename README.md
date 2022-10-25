@@ -19,7 +19,7 @@ Artificial Neural Networks model created in Python (with TensorFlow and Keras) f
 
 ## Introduction
 
-This project is a case study, aiming to develop an artificial neural network model for asset allocation. By allocation, it is understood that given a set of financial assets (stocks, indices, investment funds, etc.) the model would predict the ideal distribution in each of them. In this project, investment funds, such as FIMs and FIAs, were used as the financial assets. Today in Brazil, approx. R$ 2.3 trillion is allocated in both asset classes combined (source: **[ANBIMA](https://www.anbima.com.br/pt_br/informar/estatisticas/fundos-de-investimento/fi-consolidado-diario.htm)**).
+This project is a case study, aiming to develop an artificial neural network model for asset allocation. By allocation, it is understood that given a set of financial assets (stocks, indices, investment funds, etc.) the model would predict the ideal distribution in each of them. In this project, investment funds, such as FIMs (hedge funds) and FIAs (equity funds), were used as the financial assets. Today in Brazil, approx. R$ 2.3 trillion is allocated in both asset classes combined (source: **[ANBIMA](https://www.anbima.com.br/pt_br/informar/estatisticas/fundos-de-investimento/fi-consolidado-diario.htm)**).
 
 To perform the optimal allocation, it is necessary to define which parameter will be optimized. The most common are smaller risk, higher return, and higher return-to-risk ratio. In this project, the last was chosen.
 
@@ -56,7 +56,7 @@ As the name suggests, this notebook computes the training and prediction dataset
 
 ![This is an image](/media/windows_table.PNG)
 
-The windows are composed of four periods, where three periods are for training and one for prediction. Portfolios are assembled with a set of funds imported from a pre-defined spreadsheet, which is in the "funds_spreadsheets" folder. In this project, two spreadsheets were selected with 32 funds, one of FIAs (equity funds) and another of FIMs (hedge funds).
+The windows are composed of four periods, where three periods are for training and one for prediction. Portfolios are assembled with a set of funds imported from a pre-defined spreadsheet, which is in the "funds_spreadsheets" folder. In this project, two spreadsheets were selected with 32 funds, one of FIAs and another of FIMs.
 
 The amount of portfolios with four funds each that can be built is 35,960. It is a sample of considerable size, which is intended to minimize possible local behaviors that do not represent the whole.
 
